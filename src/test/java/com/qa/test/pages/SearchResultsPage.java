@@ -3,7 +3,7 @@ package com.qa.test.pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.assertj.core.api.Assertions;
+import org.testng.Assert;
 import org.testng.util.Strings;
 
 import static com.codeborne.selenide.Selenide.$$x;
@@ -50,7 +50,7 @@ public class SearchResultsPage {
             i++;
         }
         if (minIndex < 0)
-            Assertions.fail("Не найдено ни одного подходящего товара");
+            Assert.fail("Не найдено ни одного подходящего товара");
         searchResultItems.get(minIndex).$x(spanTitleXpath).click();
     }
 

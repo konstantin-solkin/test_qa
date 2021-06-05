@@ -1,14 +1,13 @@
 package com.qa.test.tests;
 
 import com.codeborne.selenide.Selenide;
-import com.qa.test.pages.TopMenu;
-import io.qameta.allure.Epic;
-import org.assertj.core.api.Assertions;
-import org.testng.annotations.Test;
 import com.qa.test.config.ConfigHelper;
 import com.qa.test.pages.CartPage;
 import com.qa.test.pages.DetailedProductPage;
 import com.qa.test.pages.SearchResultsPage;
+import com.qa.test.pages.TopMenu;
+import io.qameta.allure.Epic;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;

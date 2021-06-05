@@ -19,12 +19,9 @@ ext {
 dependencies {
     compile("org.aeonbits.owner:owner:1.0.12")
     compile("org.aspectj:aspectjweaver:1.9.6")
-    compile("org.apache.commons:commons-lang3:3.11")
-    compile 'com.github.javafaker:javafaker:1.0.2'
-    compile 'com.codeborne:selenide:5.17.0'
-    compile("io.qameta.allure:allure-selenide:2.13.6")
+    compile 'com.codeborne:selenide:5.21.0'
+    compile("io.qameta.allure:allure-selenide:${allureVersion}")
 
-    testCompile("org.assertj:assertj-core:3.19.0")
     testCompile("org.testng:testng:${testNgVersion}")
 }
 

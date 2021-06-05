@@ -2,7 +2,6 @@ package com.qa.test.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.SelenideWait;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
