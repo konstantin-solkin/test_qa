@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.8.1'
+}
+
+group 'com.qa.test'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+ext {
+    testNgVersion = "7.3.0"
+    allureVersion = '2.14.0'
+}
+
+dependencies {
+    compile("org.aeonbits.owner:owner:1.0.12")
+    compile("org.aspectj:aspectjweaver:1.9.6")
+    compile("org.apache.commons:commons-lang3:3.11")
+    compile 'com.github.javafaker:javafaker:1.0.2'
+    compile 'com.codeborne:selenide:5.17.0'
+    compile("io.qameta.allure:allure-selenide:2.13.6")
+
+    testCompile("org.assertj:assertj-core:3.19.0")
+    testCompile("org.testng:testng:${testNgVersion}")
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+allure {
+    autoconfigure = true
+    version = allureVersion
+
+    useTestNG() {
+        version = allureVersion
+    }
+}
+
+test {
+    systemProperties System.getProperties()
+    def propertyThreadCount = System.getProperty("threadCount")
+    useTestNG() {
+        if (propertyThreadCount)
+            threadCount propertyThreadCount as Integer
+
+        suites "src/test/resources/suites/TestSuite.xml"
+
+        testLogging {
+            events "failed",
+                    "passed",
+                    "skipped",
+                    "standard_out",
+                    "standard_error"
+            exceptionFormat "full"
+            showExceptions true
+            showCauses true
+            showStackTraces true
+        }
+    }
+}
